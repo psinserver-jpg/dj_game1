@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Prevent pull-to-refresh, pinch zoom and elastic bounce on mobile game view */
+  .touch-none-game {
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* 3-Match Blast Animations */
+@keyframes gemPopExplode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  30% {
+    transform: scale(1.35) rotate(8deg);
+    opacity: 1;
+    filter: brightness(1.8) drop-shadow(0 0 12px currentColor);
+  }
+  70% {
+    transform: scale(1.45) rotate(-6deg);
+    opacity: 0.9;
+    filter: brightness(2.2) drop-shadow(0 0 20px currentColor);
+  }
+  100% {
+    transform: scale(0.1) rotate(25deg);
+    opacity: 0;
+    filter: brightness(3);
+  }
+}
+
+@keyframes shockwaveRing {
+  0% {
+    transform: scale(0.3);
+    opacity: 1;
+    border-width: 4px;
+  }
+  60% {
+    opacity: 0.8;
+    border-width: 2.5px;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes starSparkle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.4) rotate(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes screenShakeLight {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, -1px); }
+  80% { transform: translate(2px, 2px); }
+}
+
+.animate-gem-pop {
+  animation: gemPopExplode 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-shockwave {
+  animation: shockwaveRing 0.45s ease-out forwards;
+}
+
+.animate-sparkle {
+  animation: starSparkle 0.45s ease-out forwards;
+}
+
+.shake-screen {
+  animation: screenShakeLight 0.35s ease-in-out;
+}
